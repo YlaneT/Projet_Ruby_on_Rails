@@ -1,8 +1,7 @@
 <h1>Liste des chambres<h1>
 <ul>
-  <% @chambres.each do |c| %>
-	<li><a href=<%=chambre_path(c)%>> Chambre n° <%= c.num %></a></li>
-	<li><%= link_to %></li>
+  <% for i in 0..@types.length-1 %>
+	<li><%= "L'hotel possède #{@nbs[i]} chambres de type #{@types[i]}." %></li>
   <% end %> 
 
 

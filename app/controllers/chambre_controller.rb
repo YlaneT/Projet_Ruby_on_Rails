@@ -1,5 +1,6 @@
 class ChambreController < ApplicationController
 	before_action :set_chambre, only: [:show, :edit, :update, :destroy]
+	before_action :liste_types, only: [:index]
 
 	def index
 	  @chambres = Chambre.all
@@ -45,8 +46,25 @@ class ChambreController < ApplicationController
 	  @chambre = Chambre.find(params[:id])
 	end
 
-	def str
-		return "Chambre n°" + @chambre.num
+	
+	def liste_types
+		@chambres = Chambre.all
+		@types=Array.new
+		@nbs=Array.new
+		@chambres.each do |c|
+			if @types.find_index(c.type_c) === nil
+				@types.push(c.type_c)
+				@nbs.push(1)
+			else
+				pos = @types.find_index(c.type_c)
+				@nbs[pos] += 1
+			end
+		end
+	end
+
+	def get_nb_par_type (type_c)
+		Chambre.liste_types
+		@nbs[@types.find_index(type_c)]
 	end
   
 	def chambre_params
