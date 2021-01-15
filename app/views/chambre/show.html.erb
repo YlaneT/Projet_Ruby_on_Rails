@@ -1,0 +1,8 @@
+<h1>Chambre <%= @chambre.num %></h1>
+<p>Cette chambre est de type : <%= @chambre.type_c %></p>
+
+<%= link_to "Editer la chambre", edit_chambre_path(@chambre) %>
+<%= link_to "Supprimer la chambre #{@chambre.num}", chambre_path(@restaurant), method: :delete %>
+
+<h2>Réservations</h2>
+<p> la chambre est réservée de *** à *** <p>>

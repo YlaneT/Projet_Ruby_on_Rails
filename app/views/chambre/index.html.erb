@@ -1,0 +1,16 @@
+<h1>Liste des chambres<h1>
+<ul>
+  <% @chambres.each do |c| %>
+	<li><a href=<%=chambre_path(c)%>> Chambre n° <%= c.num %></a></li>
+	<li><%= link_to %></li>
+  <% end %> 
+
+
+	<%# if c.isOccupied %>
+	<%#	<li>La chambre <  c.num  > est occupée </li>
+	<%# elsif !c.isOccupied %>
+	<%#	<li>La chambre <  c.num  > est libre </li>		
+	<%# end %>
+	
+  
+</ul>
