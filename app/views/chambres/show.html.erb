@@ -1,3 +1,4 @@
+<%= render "navbar" %>
 <h1>Chambre <%= @chambre.num %></h1>
 <p>Cette chambre est de type : <%= @chambre.type_c %></p>
 
@@ -6,3 +7,11 @@
 
 <h2>Réservations</h2>
 <p> la chambre est réservée de *** à *** <p>
+
+	<%# if c.isOccupied %>
+	<%#	<li>La chambre <  c.num  > est occupée </li>
+	<%# elsif !c.isOccupied %>
+	<%#	<li>La chambre <  c.num  > est libre </li>		
+	<%# end %>
+
+<%= link_to "Retour à l'accueil", root_path %>

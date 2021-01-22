@@ -1,0 +1,12 @@
+<nav>
+
+	<%= link_to "Home", root_path %>
+	<%= link_to "Rooms", :chambres %>
+	<%# A modifier %>
+	<%= link_to "Réservation", :root %>
+
+	<%# A retirer à la fin des tests ou ajouter seulement si admin %>
+	<%= link_to "Nouveau type chambre", :new_chambre %>
+	<%= link_to "Edit nb chambre", :root %>
+
+</nav>

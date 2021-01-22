@@ -1,0 +1,10 @@
+<%= render "navbar" %>
+<h1>Création d'un type de chambre<h1>
+<%#= Ne doit être accessible que par les admins %>
+
+<%= simple_form_for @room do |r|%>
+	<%= r.input :type_c, :label => "Type de chambre : " %>
+	<%= r.input :nb, :label => "Nombre de chambres de ce type : "%>
+	<%= r.input :prix, :label => "Prix à la nuit : "%>
+	<%= r.submit%>
+<% end %>
