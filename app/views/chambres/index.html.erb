@@ -1,5 +1,6 @@
 <h1> Chambres </h1>
-
-<% @chambres.each do |chambre| %>
-    <%= chambre.num %>
-<% end %>
+<ul>
+    <% @chambres.each do |chambre| %>
+        <li><%= chambre.num %></li>
+    <% end %>
+<ul>

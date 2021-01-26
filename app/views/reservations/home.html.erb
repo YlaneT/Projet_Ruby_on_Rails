@@ -1,0 +1,6 @@
+<%= simple_form_for @reservation do |f| %>
+    <%= f.select :chambre_id, Reservation.type_rooms %>
+    <%= f.input :date_d %>
+    <%= f.input :date_f %>
+    <%= f.submit %>
+<% end %>

@@ -1,5 +1,39 @@
 <h1> Reservations </h1>
+<%
+=begin%>
+ <ul>
+    <% @reservations.each do |r| %>
+        <li>
+            <%= r.user.id %> <%= r.date_d %> <%= r.type_c %>
+            <%= link_to 'Voir', reservation_path(r) %>
+        </li>        
+    <% end %>
+</ul> 
+<%
+=end%>
 
-<% @reservations.each do |reservation| %>
-    <%= reservation.date_d %>
-<% end %>
+<div id="wrap">
+  <div id="main" class="container clear-top">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Type de Chambre</th>
+          <th>Date Debut</th>
+          <th>Date Fin</th>
+          <th> Voir <th>
+        </tr>
+      </thead>
+      <% @reservations.each do |reservation|%>
+        <tr>
+          <td> <%= reservation.user.email %></td>
+          <td> <%= reservation.type_c %> </td>
+          <td><%= reservation.date_d %></td>
+          <td><%= reservation.date_f%></td>
+          <td> <%= link_to "show", reservation %> </td>
+        </tr>  
+      <%end%>
+    </table>
+
+  </div>
+</div>
