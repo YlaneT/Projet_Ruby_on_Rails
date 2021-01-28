@@ -1,6 +1,34 @@
 <h1> Chambres </h1>
-<ul>
-    <% @chambres.each do |chambre| %>
-        <li><%= chambre.num %></li>
+<div class="flex-container">
+    <%@chambres.each do |chambre| %>
+        <%= link_to chambre do %>
+            <div class="card">
+                <img class = "img" src="http://res.cloudinary.com/dvgdceqcn/image/upload/<%= chambre.photo.key %>" />
+                <div class="container">
+                    <h4><b><%= chambre.type_c %></b></h4>
+                    <% rating = Review.where(chambre_id: chambre.id).sum(:rating) %>
+                    <% nbre = Review.where(chambre_id: chambre.id).count %>
+                    <p>Note: <%= rating.to_f/nbre.to_f if nbre>0%></p>
+                    <p class='desc'><%= chambre.description %></p>
+                </div>
+            </div>
+        <% end %>
+
     <% end %>
+</div>
+
+
+<%
+=begin%>
+ <h1>Liste des chambres<h1>
 <ul>
+  <% @chambres.each do |c| %>
+	  <li><%= "L'hotel possède #{c.nb} chambre(s) de type #{c.type_c}." %></li>
+  <% end %> 
+	
+</ul>
+
+<p><%= link_to "Retour à l'accueil", root_path %></p> 
+<%
+=end%>
+

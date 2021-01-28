@@ -1,15 +1,4 @@
-<div class = "form">
-  <%= simple_form_for [@chambre, @review] do |f| %>
-    <%= "Votre avis : " %>
-    <%= f.input :content, label: false, :input_html => { :id => "form_c"} %>
-    <%="Note sur 5 : "%>
-    <%= f.input :rating, label: false, :input_html => { :id => "form_c"} %>
-    <%= f.submit %>
-  <% end %>  
-</div>
-
-<h2>Reviews</h2>
-
+<h1> Tous mes reviews </h1>
 <div>
   <table>
     <tr>
@@ -18,14 +7,16 @@
       <th>Avis</th>
       <th>Date</th>
       <th> Heure </th>
+      <th>  </th>
     </tr>
-    <% @chambre.reviews.each do |review|%>
+    <% @review.each do |review|%>
       <tr>
         <td> <%= review.user.email %></td>
         <td> <%= review.rating %> </td>
         <td><%= review.content %></td>
         <td><%= review.created_at.strftime("%Y-%m-%d")%></td>
         <td><%= review.created_at.strftime("%H:%M")%></td>
+        <td> <%= link_to "Consulter", chambre_path(review.chambre_id) %> </td>
 
       </tr>  
     <%end%>

@@ -25,4 +25,8 @@
       </div>
     </div>
 
-<%= link_to "Supprimer cette reservation", reservation_path(@reservation), method: :delete  %>
+    <button class = "button" style = "margin-left: 25vw"> <%= link_to "Modifier", edit_reservation_path(@reservation) if @reservation.date_d > Date.today %>  </button>
+    <button class = "button"> <%= link_to "Voir chambre", chambre_path(@reservation.chambre_id) %>  </button>
+    <button class = "button"> <%= link_to "Laisser un avis", new_chambre_review_path(@reservation.chambre_id) %>  </button>
+    <button class = "button"> <%= link_to "Supprimer", reservation_path(@reservation), method: :delete  %>  </button>
+

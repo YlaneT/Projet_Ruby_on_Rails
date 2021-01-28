@@ -1,3 +1,37 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+form
+{
+    display: inline-block;
+    font-size: large;
+}
+.form
+{
+    text-align: center;
+}
+.form > *
+{
+    text-align: left;
+}
+#form_c
+{
+    width: 40vw;
+    height: 5vh;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: larger;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+ul 
+{
+    list-style-type: none;
+}
+
+.t
+{
+    margin: 8px;
+    width: 73vw;
+    border: solid 1px darkblue;
+}

@@ -1,3 +1,98 @@
 // Place all the styles related to the chambres controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.form
+{
+    text-align: center;
+}
+.form > *
+{
+    text-align: left;
+}
+form
+{
+    display: inline-block;
+    font-size: large;
+}
+#form_c
+{
+    width: 40vw;
+    height: 5vh;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: larger;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+#form_c_d
+{
+    width: 40vw;
+    height: 20vw;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: larger;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.button
+{
+    width: 30vw;
+}
+a
+{ 
+ text-decoration:none; 
+ color: black;
+} 
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+.containerr {
+  padding: 2px 16px;
+  width: 50vw;
+}
+
+
+
+.flex-container {
+    width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .flex-container > a {
+    width: 25vw;
+    margin: 3vw;
+    text-align: center;
+    line-height: 30px;
+    font-size: 30px;
+  }
+  .img
+  {
+      padding: 20px;
+      width: 23vw;
+  }
+  .imgg
+  {
+      padding: 20px;
+      width: 50vw;
+  }
+  h1, h4
+  {
+    text-align: center;
+  }
+  .desc
+  {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }

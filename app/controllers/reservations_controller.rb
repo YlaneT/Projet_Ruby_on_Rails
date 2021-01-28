@@ -35,7 +35,6 @@ class ReservationsController < ApplicationController
     end
 
     def new
-        raise
         @reservation = Reservation.new
         authorize @reservation
     end
@@ -59,7 +58,7 @@ class ReservationsController < ApplicationController
         when "Non disponible"
             render html: "<script> alert( 'Chambre indisponible' )</script>".html_safe
         else
-            redirect_to @result
+            redirect_to reservations_path
         end
                 
 
@@ -144,8 +143,8 @@ class ReservationsController < ApplicationController
         when "Non disponible"
             render html: "<script> alert( 'Chambre indisponible' )</script>".html_safe
         else
-            @reservation.update(reservation_params)
             @reservation.chambre = @chambre
+            @reservation.update(reservation_params)
             redirect_to reservation_path(@reservation)
         end
 

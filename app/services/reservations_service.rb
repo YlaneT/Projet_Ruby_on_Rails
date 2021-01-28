@@ -15,7 +15,7 @@ class ReservationsService
             nbre= Reservation.where("Date(date_d) < ? AND Date(date_f) > ? AND type_c = ?", @date_f, @date_d, @type_c).count
             #if (nbre.to_i < (Chambre.where(id: @chambre).map { |p| p.num }))
             
-            if (Chambre.where("id = ? AND num > ?", @chambre, nbre).length > 0)
+            if (Chambre.where("id = ? AND nb > ?", @chambre, nbre).length > 0)
                 @reservation.chambre = @chambre
                 @reservation.user = @current_user
                 @reservation.save
@@ -38,7 +38,7 @@ class ReservationsService
             
             nbre= Reservation.where("Date(date_d) < ? AND Date(date_f) > ? AND type_c = ?", @date_f, @date_d, @type_c).count
             
-            if (Chambre.where("id = ? AND num > ?", @chambre, nbre).length > 0)
+            if (Chambre.where("id = ? AND nb > ?", @chambre, nbre).length > 0)
                 return true
             else
                 #render "reservations", :alert => 'sddsjsd'

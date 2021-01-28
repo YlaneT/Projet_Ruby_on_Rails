@@ -1,4 +1,6 @@
 <h1> Reservations </h1>
+
+<button class = "btn"> <%= link_to "Reserver", new_reservation_path %>  </button>
 <%
 =begin%>
  <ul>
@@ -20,8 +22,10 @@
       <th>Type de Chambre</th>
       <th>Date Debut</th>
       <th>Date Fin</th>
-      <th> Voir </th>
+      <th> Consulter </th>
       <th> Modifier </th>
+      <th> Voir </th>
+      <th> Avis </th>
     </tr>
     <% @reservations.each do |reservation|%>
       <tr>
@@ -29,8 +33,10 @@
         <td> <%= reservation.type_c %> </td>
         <td><%= reservation.date_d %></td>
         <td><%= reservation.date_f%></td>
-        <td> <%= link_to "show", reservation %> </td>
-        <td> <%= link_to "edit", edit_reservation_path(reservation) if reservation.date_d > Date.today %> </td>
+        <td> <%= link_to "Consulter", reservation %> </td>
+        <td> <%= link_to "Modifier", edit_reservation_path(reservation) if reservation.date_d > Date.today %> </td>
+        <td> <%= link_to "Voir chambre", chambre_path(reservation.chambre_id) %> </td>
+        <td> <%= link_to "Laisser un avis", new_chambre_review_path(reservation.chambre_id) %> </td>
       </tr>  
     <%end%>
   </table>

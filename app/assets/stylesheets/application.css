@@ -50,14 +50,11 @@
     background-color: #111;
   }
 
-  p
-  {
-    margin-top: 12px;
-    color: white;
-  }
 
-  .a
+
+  #a
   {
     margin-left: 50vw;
+    color: white;
   }
   

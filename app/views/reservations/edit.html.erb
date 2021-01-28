@@ -1,8 +1,11 @@
-<%= simple_form_for @reservation do |f| %>
-    <%= f.input :date_d, as: :date, html5: true %>
-    <%= f.input :date_f, as: :date, html5: true  %>
-    <%#= f.input :type_c %>
-    <%#= f.select :type_c, Reservation.type_chambres %>
-    <%= f.select :type_c, Chambre.pluck(:type_c)  %>
-    <%= f.submit %>
-<% end %>
+<div class = "form">
+	<%= simple_form_for @reservation do |r|%>
+		<%= "Date de debut : " %>
+        <%= r.input :date_d, label: false, as: :date, html5: true, :input_html => { :id => "form_r"} %>
+		<%= "Date de fin : " %>
+        <%= r.input :date_f, label: false, as: :date, html5: true, :input_html => { :id => "form_r"}  %>
+		<%= "Type de chambre : " %>
+        <%= r.select :type_c, Chambre.pluck(:type_c), {id: "form_r"}  %>
+        <%= r.submit %>
+	<% end %>
+</div>

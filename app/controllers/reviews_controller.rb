@@ -1,4 +1,10 @@
 class ReviewsController < ApplicationController
+
+    def show
+        @review= Review.where(user_id: current_user.id)
+        authorize @review
+    end
+
     def new
         @chambre = Chambre.find(params[:chambre_id])
         @review = Review.new

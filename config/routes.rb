@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :reviews
   end
   resources :reservations
+  resources :pages
 
   # require "sidekiq/web"
   # mount Sidekiq::Web => 'sidekiq'

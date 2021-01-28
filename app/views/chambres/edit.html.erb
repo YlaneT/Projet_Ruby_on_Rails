@@ -1,0 +1,20 @@
+<h1>Modification d'un type de chambre<h1>
+<%#= Ne doit être accessible que par les admins %>
+
+<div class = "form">
+	<%= simple_form_for @chambre do |r|%>
+		<%= "Type de chambre : " %>
+		<%= r.input :type_c, label: false, :input_html => { :id => "form_c"} %>
+		<%="Nombre de chambres de ce type : "%>
+		<%= r.input :nb, label: false, :input_html => { :id => "form_c"} %>
+		<%= "Prix à la nuit : " %>
+		<%= r.input :prix, label: false, :input_html => { :id => "form_c"} %>
+		<%= "Description"%>
+		<%= r.input :description, label: false , :as => :text, :input_html => { :id => "form_c_d", :rows => 17, :cols => 60} %>
+		<%= "Photo"%>
+		<%= r.input :photo, label: false, as: :file %>
+		
+		<%= r.submit :input_html => { :class => "button"}%>
+		
+	<% end %>
+</div>

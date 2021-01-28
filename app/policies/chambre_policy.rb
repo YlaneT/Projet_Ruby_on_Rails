@@ -10,10 +10,34 @@ class ChambrePolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    if user.admin
+      true
+    else
+      false
+    end
   end
 
   def create?
     new?
+  end
+
+  def edit?
+    if user.admin
+      true
+    else
+      false
+    end
+  end
+
+  def update?
+    edit?
+  end
+
+  def destroy?
+    if user.admin
+      true
+    else
+      false
+    end
   end
 end
