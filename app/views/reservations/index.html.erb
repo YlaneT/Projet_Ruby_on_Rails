@@ -12,28 +12,26 @@
 <%
 =end%>
 
-<div id="wrap">
-  <div id="main" class="container clear-top">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Type de Chambre</th>
-          <th>Date Debut</th>
-          <th>Date Fin</th>
-          <th> Voir <th>
-        </tr>
-      </thead>
-      <% @reservations.each do |reservation|%>
-        <tr>
-          <td> <%= reservation.user.email %></td>
-          <td> <%= reservation.type_c %> </td>
-          <td><%= reservation.date_d %></td>
-          <td><%= reservation.date_f%></td>
-          <td> <%= link_to "show", reservation %> </td>
-        </tr>  
-      <%end%>
-    </table>
 
-  </div>
+<div>
+  <table>
+    <tr>
+      <th>User</th>
+      <th>Type de Chambre</th>
+      <th>Date Debut</th>
+      <th>Date Fin</th>
+      <th> Voir </th>
+      <th> Modifier </th>
+    </tr>
+    <% @reservations.each do |reservation|%>
+      <tr>
+        <td> <%= reservation.user.email %></td>
+        <td> <%= reservation.type_c %> </td>
+        <td><%= reservation.date_d %></td>
+        <td><%= reservation.date_f%></td>
+        <td> <%= link_to "show", reservation %> </td>
+        <td> <%= link_to "edit", edit_reservation_path(reservation) if reservation.date_d > Date.today %> </td>
+      </tr>  
+    <%end%>
+  </table>
 </div>

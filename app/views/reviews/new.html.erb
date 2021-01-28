@@ -1,0 +1,12 @@
+<%= simple_form_for [@chambre, @review] do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rating %>
+    <%= f.submit %>
+  <% end %>  
+
+   <h2>Reviews</h2>
+<ul>
+  <% @chambre.reviews.each do |review| %>
+    <li><%= review.rating %> - <%= review.content %> - <%= review.user.email %> - <%= review.created_at.strftime("%Y-%m-%d") %> - <%= review.created_at.strftime("%H:%M") %></li>
+  <% end %>
+</ul>

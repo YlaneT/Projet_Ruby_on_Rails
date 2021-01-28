@@ -1,1 +1,8 @@
  <%= @chambre.id %>
+ <h2>Reviews</h2>
+<%= link_to "Laissez un avis", new_chambre_review_path(@chambre) %>
+<ul>
+  <% @chambre.reviews.each do |review| %>
+    <li><%= review.rating %> - <%= review.content %> - <%= review.user.email %></li>
+  <% end %>
+</ul>

@@ -10,6 +10,9 @@ gem 'pundit'
 #Gem permettant de generer un formulaire
 gem 'simple_form'
 
+gem 'sidekiq'
+gem 'sidekiq-failures'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
 # Use postgresql as the database for Active Record

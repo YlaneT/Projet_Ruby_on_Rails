@@ -2,22 +2,27 @@ class ReservationsController < ApplicationController
     before_action :authenticate_user!, only: [:index, :show, :create, :edit, :update, :destroy]
     before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
-
-
     def index
         @reservations = policy_scope(Reservation)
-        
         #@reservations = Reservation.all
+        
         if (User.where("id = ? and admin = true", current_user.id).count > 0)
-            @reservations = Reservation.all
+            if (params[:type_c] == nil or params[:type_c] == "")
+                @reservations = Reservation.all
+            else
+                @reservations = Reservation.where(type_c: params[:type_c])
+            end
+            
         else
-            @reservations = Reservation.where(user_id: current_user.id)
+            if (params[:type_c] == nil or params[:type_c] == "")
+                @reservations = Reservation.where(user_id: current_user.id)
+            else
+                @reservations = Reservation.where(user_id: current_user.id, type_c: params[:type_c])
+            end
         end
-
-        
-        
         # @reservations = Reservation.where(date_d: "2021-01-21")
         
+ 
     end
 
     def home
@@ -27,31 +32,36 @@ class ReservationsController < ApplicationController
 
     def show
         @reservation = Reservation.find(params[:id])
-
-        
     end
 
-
     def new
-        #params[:chambre_id] = "3"
-        
-
-        #@chambre = Chambre.find(params[:chambre_id])
+        raise
         @reservation = Reservation.new
         authorize @reservation
     end
 
     def create
+        
         @reservation = Reservation.new(reservation_params)
         authorize @reservation
         
-        ReservationsService.new({
+        @result = ReservationsService.new({
                 type_c: params[:reservation][:type_c],
                 date_d: params[:reservation][:date_d],
                 date_f: params[:reservation][:date_f],
                 reservation: @reservation,
                 current_user: current_user
                 }).ajout
+                
+        case @result
+        when "Date erreur"
+            render html: "<script> alert( 'Dates choisies invalides' )</script>".html_safe
+        when "Non disponible"
+            render html: "<script> alert( 'Chambre indisponible' )</script>".html_safe
+        else
+            redirect_to @result
+        end
+                
 
         # #if(Reservation.where("date_d < ? AND date_f > ?", params[:date_f], params[:date_d] )).empty?
         # #params[:chambre_id] = "2"
@@ -119,24 +129,27 @@ class ReservationsController < ApplicationController
     end
 
     def update
-        if(params[:reservation][:type_c] == "0")
-            #params[:chambre_id] = "1"
-            @chambre = Chambre.find(1)
+        authorize @reservation
+        @result = ReservationsService.new({
+            type_c: params[:reservation][:type_c],
+            date_d: params[:reservation][:date_d],
+            date_f: params[:reservation][:date_f],
+            reservation: @reservation,
+            current_user: current_user
+            }).ajout
+
+        case @result
+        when "Date erreur"
+            render html: "<script> alert( 'Dates choisies invalides' )</script>".html_safe
+        when "Non disponible"
+            render html: "<script> alert( 'Chambre indisponible' )</script>".html_safe
+        else
+            @reservation.update(reservation_params)
+            @reservation.chambre = @chambre
+            redirect_to reservation_path(@reservation)
         end
-        if(params[:reservation][:type_c] == "1")
-            #params[:chambre_id] = "2"
-            @chambre = Chambre.find(2)
-        end
-        if(params[:reservation][:type_c] == "2")
-            @chambre = Chambre.find(3)
-        end
-        if(params[:reservation][:type_c] == "3")
-            #params[:chambre_id] = "4"
-            @chambre = Chambre.find(4)
-        end  
-        @reservation.update(reservation_params)
-        @reservation.chambre = @chambre
-        redirect_to reservation_path(@reservation)
+
+        
     end
 
     def destroy

@@ -4,15 +4,19 @@
           <table class="table table-user-information">
             <tbody>
               <tr>
-                <td>Room No</td>
+                <td>Type de chambre</td>
                 <td><%= @reservation.type_c%></td>
               </tr>
               <tr>
-                <td>Check In </td>
+                <td>Email</td>
+                <td><%= @reservation.user.email%></td>
+              </tr>
+              <tr>
+                <td>Date debut </td>
                 <td><%= @reservation.date_d%></td>
               </tr>
               <tr>
-                <td>Check Out </td>
+                <td>Date fin </td>
                 <td><%= @reservation.date_f%></td>
               </tr>
             </tbody>
