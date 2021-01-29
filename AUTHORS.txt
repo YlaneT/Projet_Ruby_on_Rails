@@ -1,0 +1,13 @@
+Zahir MENDACI
+- Reviews
+- User
+- Reservations
+- Authorisation
+- Seed
+
+Ylane TURAM-ULIEN
+- Chambres
+- Home
+- Navigation
+- Diagramme UML
+- Seed
