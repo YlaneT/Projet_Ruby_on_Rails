@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :reservations
   resources :pages
 
-  require "sidekiq/web"
-  mount Sidekiq::Web => 'sidekiq'
+  # require "sidekiq/web"
+  # mount Sidekiq::Web => 'sidekiq'
 
 end
