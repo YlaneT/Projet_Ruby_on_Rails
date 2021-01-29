@@ -12,18 +12,7 @@
 
   <body>
     <div class="body">
-
-      <%
-=begin%>
- <ul>
-        <li><a href="/">Acceuil</a></li>
-        <li><a href="/chambres">Chambres</a></li>
-        <li><a href="/reservations">Reservations</a></li>
-        <li><a href="about.asp">About</a></li>
-        <li> <p><%= link_to 'Deconnexion', destroy_user_session_path, method: :delete if user_signed_in? %></p> </li>
-      </ul> 
-<%
-=end%>
+    <%# NavBar %>
       <ul class = "ul">
         <li class = "li"><%= link_to 'Acceuil', '/' %></li>
         <li class = "li"><%= link_to 'Chambres', '/chambres' %></li>
@@ -33,7 +22,6 @@
         <li class = "li"><%= link_to 'Se connecter', new_user_session_path unless user_signed_in? %></li>
         <li class = "li"><%= link_to 'Deconnexion', destroy_user_session_path, method: :delete if user_signed_in? %></li>
       </ul>
-
 
       <%= yield %>
     </div>

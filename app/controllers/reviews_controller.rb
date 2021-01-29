@@ -2,17 +2,20 @@ class ReviewsController < ApplicationController
     before_action :authenticate_user!, only: [:show, :create, :edit, :update, :destroy]
 
     def show
+        #Affichage de toutes les reviews faites par l'utilisateur connecté
         @review= Review.where(user_id: current_user.id)
         authorize @review
     end
 
     def new
+        #Ajout d'un nouvel avis
         @chambre = Chambre.find(params[:chambre_id])
         @review = Review.new
         authorize @review        
     end
 
     def create
+        #Ajout de l'avis en bdd
         @review = Review.new(review_params)
         authorize @review
         if (params[:review][:rating].to_i < 0) || (params[:review][:rating].to_i > 5)

@@ -1,4 +1,5 @@
 <h1> Chambres </h1>
+<%# Acces par tout le monde %>
 
 <button class = "btn"> <%= link_to "Reserver", new_reservation_path %>  </button>
 <%= link_to "Nouvelle chambre", new_chambre_path() if current_user != nil && current_user.admin == true %>

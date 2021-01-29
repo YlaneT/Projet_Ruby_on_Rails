@@ -26,7 +26,7 @@ Reservation.create(date_d: "2021-02-24", date_f: "2021-02-31", user_id: 2, chamb
 
 
 ['Classique', 'Superieure', 'Twin', 'Familiale'].each do
-    5.times do
+    2.times do
         Review.create(content: 'Super', rating: 5, chambre_id: 1, user_id: 3)
         Review.create(content: 'Moyen', rating: 3, chambre_id: 1, user_id: 2)
         Review.create(content: 'Nul', rating: 1, chambre_id: 1, user_id: 3)

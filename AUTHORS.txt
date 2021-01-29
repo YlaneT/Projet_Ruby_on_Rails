@@ -11,6 +11,7 @@ Zahir MENDACI
 Ylane TURAM-ULIEN
 - Chambres
 - Home
+- Design
 - Navigation
 - Diagramme UML
 - Seed

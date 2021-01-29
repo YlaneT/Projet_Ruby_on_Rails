@@ -52,11 +52,11 @@
 
 
 
-  #a
-  {
-    margin-left: 35vw;
-    color: white;
-  }
+#a
+{
+  margin-left: 35vw;
+  color: white;
+}
 form
 {
     text-align: center;
@@ -79,9 +79,6 @@ form > *
     font-size: larger;
     margin-bottom: 10px;
     margin-top: 10px;
-}
-.btn
-{
 }
 
   

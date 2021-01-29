@@ -10,22 +10,26 @@ class ChambresController < ApplicationController
 	
 
 	def index
+		#Affichage de tous les types de chambres
 		@chambres = policy_scope(Chambre)
 	  	@chambres = Chambre.all
 	end
 
 	def show
+		#Affichage details d'un type de chambre
 		@user = current_user
 		@chambre = Chambre.find(params[:id])
 		authorize @chambre
 	end
   
 	def new
+		#Creation d'un nouveau type de chambre
 		@chambre = Chambre.new
 		authorize @chambre		
 	end
 
 	def create
+		#Ajout du nouveau type en bdd
 		@chambre = Chambre.new(chambre_params)
 		authorize @chambre
 		@check = Chambre.where(type_c: params[:chambre][:type_c]).count
@@ -39,20 +43,23 @@ class ChambresController < ApplicationController
 
 	
 	def edit
-        @chambre = Chambre.find(params[:id])
+		#Modifier les infos d'un type de chambre
+		@chambre = Chambre.find(params[:id])
         authorize @chambre        
     end
   
 	def update
+		#Application de la modification en bdd
 		authorize @chambre
 		@chambre.update(chambre_params)
 		redirect_to chambre_path(@chambre)
 	end
   
 	def destroy
+		#Supprimer un type de chambre
 		authorize @chambre
 	  	@chambre.destroy
-	  	redirect_to chambres_path
+	  	redirect_to "/chambres"
 	end
   
 	private
