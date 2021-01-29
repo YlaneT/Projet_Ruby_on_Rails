@@ -26,6 +26,10 @@ class ReservationsController < ApplicationController
  
     end
 
+    def home
+        
+    end
+
 
     def show
         @reservation = Reservation.find(params[:id])

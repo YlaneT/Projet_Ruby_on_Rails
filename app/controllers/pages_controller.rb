@@ -9,6 +9,9 @@ class PagesController < ApplicationController
             
     end
 
+    def home
+    end
+
     def show
         @user = User.find(params[:id_u])
         if @user == current_user

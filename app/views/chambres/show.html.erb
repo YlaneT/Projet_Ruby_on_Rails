@@ -1,17 +1,3 @@
- <%
-=begin%>
- <%= @chambre.id %>
- <h2>Reviews</h2>
-<%= link_to "Laissez un avis", new_chambre_review_path(@chambre) %>
-<ul>
-  <% @chambre.reviews.each do |review| %>
-    <li><%= review.rating %> - <%= review.content %> - <%= review.user.email %></li>
-  <% end %>
-</ul> 
-<%
-=end%>
-
-
 <div class="flex-container">
 	<div class="card">
 		<img class = 'imgg' src="http://res.cloudinary.com/dvgdceqcn/image/upload/<%= @chambre.photo.key %>" />
@@ -22,8 +8,9 @@
 			<% nbre = Review.where(chambre_id: @chambre.id).count %>
 			<h4> Note: <%= rating.to_f/nbre.to_f if nbre>0%> / <%= link_to "Laissez un avis", new_chambre_review_path(@chambre) %></h4>
 			<p><%= @chambre.description %></p>
-			<button class = "button2" style = "margin-left: 17vw"> <%= link_to "Modifier", edit_chambre_path() %>  </button>
-			<button class = "button2"> <%= link_to "Supprimer", chambre_path(), method: :delete  %>  </button>
+			<button class = "button2" style = "margin-left: 21vw"> <%= link_to "Reserver", new_reservation_path %>  </button>
+			<%= link_to "Modifier", edit_chambre_path() if current_user != nil && current_user.admin == true %>
+			<%= link_to "Supprimer", chambre_path(), method: :delete if current_user != nil && current_user.admin == true %>
 		</div>
 	</div>
 </div>

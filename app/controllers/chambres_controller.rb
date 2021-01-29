@@ -50,9 +50,9 @@ class ChambresController < ApplicationController
 	end
   
 	def destroy
-	  @chambre.destroy
-	  authorize @chambre
-	  redirect_to chambres_path
+		authorize @chambre
+	  	@chambre.destroy
+	  	redirect_to chambres_path
 	end
   
 	private

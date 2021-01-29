@@ -28,6 +28,7 @@
         <li class = "li"><%= link_to 'Acceuil', '/' %></li>
         <li class = "li"><%= link_to 'Chambres', '/chambres' %></li>
         <li class = "li"><%= link_to 'Reservations', '/reservations' %></li>
+        <li class = "li"><%= link_to 'Liste users', '/pages' if current_user != nil && current_user.admin == true%></li>
         <li class = "li" id = "a"> <p> <%= "( " + current_user.email + " )" if current_user != nil %> </p> </li>
         <li class = "li"><%= link_to 'Se connecter', new_user_session_path unless user_signed_in? %></li>
         <li class = "li"><%= link_to 'Deconnexion', destroy_user_session_path, method: :delete if user_signed_in? %></li>
