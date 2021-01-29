@@ -1,19 +1,6 @@
 <h1> Reservations </h1>
 
 <button class = "btn"> <%= link_to "Reserver", new_reservation_path %>  </button>
-<%
-=begin%>
- <ul>
-    <% @reservations.each do |r| %>
-        <li>
-            <%= r.user.id %> <%= r.date_d %> <%= r.type_c %>
-            <%= link_to 'Voir', reservation_path(r) %>
-        </li>        
-    <% end %>
-</ul> 
-<%
-=end%>
-
 
 <div>
   <table>

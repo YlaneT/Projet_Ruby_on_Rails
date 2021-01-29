@@ -5,5 +5,6 @@ class TestJob < ApplicationJob
     puts 'Start'
     sleep 3
     puts 'End'
+    
   end
 end

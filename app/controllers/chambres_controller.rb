@@ -45,13 +45,8 @@ class ChambresController < ApplicationController
   
 	def update
 		authorize @chambre
-		@check = Chambre.where(type_c: params[:chambre][:type_c]).count
-		if @check == 0
-			@chambre.update(chambre_params)
-			redirect_to chambre_path(@chambre)
-		else
-			render html: "<script> alert( 'Chambre existe deja' )</script>".html_safe
-		end
+		@chambre.update(chambre_params)
+		redirect_to chambre_path(@chambre)
 	end
   
 	def destroy

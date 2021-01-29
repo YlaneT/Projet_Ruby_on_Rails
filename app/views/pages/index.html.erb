@@ -1,12 +1,4 @@
-<ul>
-<% @utilisateur.each do |u| %>
-    <div>
-    <li><%= u.email %></li> 
-    <li><%= u.admin %></li> 
-    <li><%= link_to "edit" if u.admin != true %></li> 
-    </div>
-<% end %>
-</ul>
+<h1> Liste des utilisateurs </h1>
 
 <div>
   <table>

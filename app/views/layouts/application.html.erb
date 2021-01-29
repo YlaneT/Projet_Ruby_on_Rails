@@ -25,6 +25,7 @@
 <%
 =end%>
       <ul class = "ul">
+        <li class = "li"><%= link_to 'Acceuil', '/' %></li>
         <li class = "li"><%= link_to 'Chambres', '/chambres' %></li>
         <li class = "li"><%= link_to 'Reservations', '/reservations' %></li>
         <li class = "li" id = "a"> <p> <%= "( " + current_user.email + " )" if current_user != nil %> </p> </li>

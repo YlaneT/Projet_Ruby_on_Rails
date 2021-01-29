@@ -1,4 +1,4 @@
-<h1> Tous mes reviews </h1>
+<h1> Toutes mes reviews </h1>
 <div>
   <table>
     <tr>
@@ -17,6 +17,7 @@
         <td><%= review.created_at.strftime("%Y-%m-%d")%></td>
         <td><%= review.created_at.strftime("%H:%M")%></td>
         <td> <%= link_to "Consulter", chambre_path(review.chambre_id) %> </td>
+        <td> <%#= link_to "Supprimer", new_chambre_review_path(review.chambre_id), method: :delete  %> </td>
 
       </tr>  
     <%end%>
