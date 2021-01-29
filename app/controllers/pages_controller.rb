@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-
+    before_action :authenticate_user!, only: [:index, :show]
     def index
         if (User.where("id = ? and admin = true", current_user.id).count > 0)
             @utilisateur = User.all
