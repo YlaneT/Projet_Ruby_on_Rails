@@ -3,7 +3,10 @@ Zahir MENDACI
 - User
 - Reservations
 - Authorisation
+- Design
+- Service
 - Seed
+- Hébergement
 
 Ylane TURAM-ULIEN
 - Chambres
@@ -11,3 +14,4 @@ Ylane TURAM-ULIEN
 - Navigation
 - Diagramme UML
 - Seed
+- Readme / Authors
