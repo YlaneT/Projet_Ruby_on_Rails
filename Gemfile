@@ -9,10 +9,10 @@ gem 'devise'
 gem 'pundit'
 #Gem permettant de generer un formulaire
 gem 'simple_form'
-
+#Gem permettant de planifier des travaux en arriere plan
 gem 'sidekiq'
 gem 'sidekiq-failures'
-
+#Gem permettant la gestion d'images et de vidéos dans le cloud
 gem 'cloudinary'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
